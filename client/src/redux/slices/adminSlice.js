@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { adminLogin } from "../thunks/adminThunk.js";
 
+
+const token = localStorage.getItem("adminToken");
+const role = localStorage.getItem("adminRole");
+
 const initialState = {
-  isAuthenticated: false, 
-  token: localStorage.getItem("adminToken") || null,
-  role: localStorage.getItem("adminRole") || null,
+  isAuthenticated: !!(token && role), 
+  token: token || null,
+  role: role || null,
   loading: false,
   error: null,
   success: false,
@@ -38,7 +42,7 @@ const adminSlice = createSlice({
       .addCase(adminLogin.fulfilled, (state, action) => {
         state.loading = false;
         state.success = true;
-        state.isAuthenticated = true; 
+        state.isAuthenticated = true;
         state.token = action.payload?.data?.token || null;
         state.role = action.payload?.data?.role || null;
 
@@ -53,7 +57,7 @@ const adminSlice = createSlice({
       .addCase(adminLogin.rejected, (state, action) => {
         state.loading = false;
         state.success = false;
-        state.isAuthenticated = false; 
+        state.isAuthenticated = false;
         state.error = action.payload || "Admin login failed";
       });
   },
