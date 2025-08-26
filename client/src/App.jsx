@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 import { Suspense, lazy } from "react";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
+import PublicRoute from "./routes/PublicRoute.jsx";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -25,10 +26,14 @@ function App() {
       >
         <Routes>
           {/* Public routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route element={<PublicRoute />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Route>
+
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
+          {/* Protected admin routes */}
           <Route element={<ProtectedRoute allowed={["admin"]} />}>
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
