@@ -180,6 +180,7 @@ export default function TaskForm() {
           value={taskData.description}
           onChange={handleChange}
           multiline
+          required
           rows={3}
           fullWidth
           inputProps={{ maxLength: 200 }}
@@ -205,6 +206,7 @@ export default function TaskForm() {
             name="assignEmp"
             value={taskData.assignEmp}
             onChange={handleChange}
+            required
             label="Assign Employee"
             sx={{
               "& .MuiSelect-select": { padding: "10px 14px" },
@@ -223,10 +225,10 @@ export default function TaskForm() {
           type="date"
           name="deadline"
           label="Deadline"
+          required
           InputLabelProps={{ shrink: true }}
           value={taskData.deadline}
           onChange={handleChange}
-          required
           fullWidth
           inputProps={{
             min: new Date().toISOString().split("T")[0],
@@ -241,6 +243,7 @@ export default function TaskForm() {
           <Select
             name="priority"
             value={taskData.priority}
+            required
             onChange={handleChange}
             sx={{ "& .MuiSelect-select": { padding: "10px 14px" } }}
           >
@@ -257,6 +260,7 @@ export default function TaskForm() {
           </InputLabel>
           <Select
             name="status"
+            required
             value={taskData.status}
             onChange={handleChange}
             sx={{ "& .MuiSelect-select": { padding: "10px 14px" } }}

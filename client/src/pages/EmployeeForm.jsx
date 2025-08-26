@@ -125,7 +125,8 @@ export default function EmployeeForm() {
             type="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleChange} 
+            required
             inputProps={{ maxLength: 50 }} // max length for email
           />
           <TextField
@@ -158,6 +159,7 @@ export default function EmployeeForm() {
             label="Status"
             name="status"
             value={formData.status}
+            required
             onChange={handleChange}
           >
             <MenuItem value="Active">Active</MenuItem>
