@@ -16,7 +16,6 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
 function App() {
   return (
     <Layout>
-   
       <Suspense
         fallback={
           <div style={{ textAlign: "center", marginTop: "50px" }}>
@@ -27,8 +26,6 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<h1>Home Page</h1>} />
-          <Route path="/contact" element={<h1>Contact Page</h1>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
