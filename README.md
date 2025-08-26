@@ -58,7 +58,7 @@ This project provides functionalities for managing employees, assigning tasks, t
 
    ```bash
    git clone https://github.com/sambhavgurjar/AdminDashboard.git
-   cd task-management
+   cd AdminDashboard
    ```
 
 2. Install dependencies
