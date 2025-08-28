@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
     console.log(req.url);
-    console.log("check");
+    // console.log("check");
     next()
     
 })

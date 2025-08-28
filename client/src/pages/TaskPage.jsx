@@ -37,7 +37,7 @@ export default function TaskPage() {
     deleteTaskSuccess,
     message,
   } = useSelector((state) => state.task);
-console.log(tasks);
+// console.log(tasks);
 
   const employeeNameFromState = location.state?.employeeName || "";
 

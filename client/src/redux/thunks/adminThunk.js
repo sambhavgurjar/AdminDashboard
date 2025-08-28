@@ -11,7 +11,7 @@ export const adminLogin = createAsyncThunk(
 
       return thunk.fulfillWithValue(res?.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
 
       return thunk.rejectWithValue(ErrorHandler(err, "Failed to login admin"));
     }
