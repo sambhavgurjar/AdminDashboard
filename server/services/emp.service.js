@@ -4,6 +4,10 @@ const AppError = require("../utils/AppError.js");
 //create a employee
 exports.createEmp = async (data) => {
   try {
+    let existingEmail = await EMP.findOne({ email: data.email });
+    if (existingEmail)
+      throw new AppError("Employee with this email already exists", 400);
+
     let emp = new EMP(data);
     await emp.save();
     return {
