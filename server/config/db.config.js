@@ -11,6 +11,7 @@ async function dbConfig() {
 
     console.log("Database connected successfully");
   } catch (err) {
+    
     console.error("Failed to connect Database:", err.message);
   }
 }
